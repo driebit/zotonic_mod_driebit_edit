@@ -1,0 +1,15 @@
+{application, zotonic_mod_driebit_edit, [
+    {description, "Driebit edit module"},
+    {vsn, git},
+    {registered, []},
+    {applications, [
+        kernel, stdlib, zotonic_core
+    ]},
+    {env, []},
+    {modules, []},
+    {doc, "doc"},
+    {licenses, ["Apache-2.0"]},
+    {links, [
+        {"Website", "https://driebit.nl/"}
+    ]}
+]}.
