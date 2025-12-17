@@ -39,7 +39,7 @@ _ginger-editor.tpl.
 %}
 
 {% if m.modules.active.mod_geo %}
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ m.geo.api.google_key|escape }}"></script>
+    <script type="text/javascript" nonce="{{ m.req.csp_nonce }}" src="https://maps.googleapis.com/maps/api/js?key={{ m.geo.api.google_key|escape }}"></script>
     {% lib "js/admin-geo.js" %}
 {% endif %}
 
@@ -50,8 +50,33 @@ _ginger-editor.tpl.
 {% worker name="auth" src="js/zotonic.auth.worker.js" args=%{  auth: m.authentication.status  } %}
 
 <script type="text/javascript" nonce="{{ m.req.csp_nonce }}">
-$(function()
-{
-    $.widgetManager();
-});
+    $(function()
+    {
+        $.widgetManager();
+    });
+
+    function confirm_unsaved( newloc ) {
+        z_editor_save($('#rscform'));
+        if ($('#rscform').attr('data-formdirty')) {
+            z_dialog_confirm({
+                cancel: "{_ Yes, discard changes _}",
+                ok: z_translate("Cancel"),
+                text: '<p>{_ There are unsaved changes. Are you sure you want to leave without saving? _}</p>',
+                on_cancel: function() {
+                    window.location = newloc;
+                }
+            });
+        } else {
+            window.location = newloc;
+        }
+    }
+
+    $('body').on("click", "a", function(evt) {
+        const href = $(this).attr('href');
+        const m = href && href.match(/\/(..\/|..-[a-z]+\/)?admin\/edit\/([0-9]+)$/);
+        if (m) {
+            confirm_unsaved(href.replace(/admin\/edit\//, "edit/"));
+            evt.preventDefault();
+        }
+    });
 </script>

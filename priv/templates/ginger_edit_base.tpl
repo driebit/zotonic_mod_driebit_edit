@@ -31,7 +31,7 @@
         {% include "_js_include_jquery.tpl" %}
         {% block head_extra %}{% endblock %}
     </head>
-	<body class="{% block page_class %}{% endblock %}">
+	<body class="{% block page_class %}{% endblock %}" data-cotonic-pathname-search="{% cotonic_pathname_search %}">
 
     {% block container %}
 	<div class="{% block container_class %}container{% endblock %}">

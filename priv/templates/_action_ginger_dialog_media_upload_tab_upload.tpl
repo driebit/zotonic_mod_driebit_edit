@@ -32,6 +32,11 @@
                     </div>
                 </div>
 
+                {% if subject_id or is_zmedia or is_zlink %}
+                    <input type="hidden" name="is_dependent" value="1">
+                    <input type="hidden" name="is_published" value="1">
+                {% endif %}
+
                 <div class="modal-footer">
                     {% button class="btn btn-default" action={dialog_close} text=_"Cancel" tag="a" %}
                     <button class="btn btn-primary" type="submit">{_ Upload file _}</button>
