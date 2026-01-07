@@ -40,7 +40,7 @@
 {% endblock %}
 
 {% block widget_content %}
-    <div class="row">
+    <div class="row edit-date-range__remarks">
         <div class="form-group col-xs-12">
             <label class="control-label" for="{{ #remarks }}{{ lang_code_for_id }}">{_ Remarks _}</label>
             <input type="text" id="{{ #remarks }}{{ lang_code_for_id }}" name="date_remarks{{ lang_code_with_dollar }}"
