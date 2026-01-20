@@ -1,7 +1,7 @@
 {% with
-    m.rsc[cat],
+    m.rsc[cat].id,
     predicate|as_atom,
-    m.rsc[predicate],
+    m.rsc[predicate].id,
     title|default:m.rsc[predicate].title,
     tabs_enabled|default:['find'],
     tab|default:'find',
