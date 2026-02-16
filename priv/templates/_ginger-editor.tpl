@@ -25,6 +25,7 @@ overrides_tpl: (optional) template location that contains JavaScript overrides f
     action={
         dialog_open
         template="_action_dialog_connect.tpl"
+        intent="select"
         title=_"Add link"
         subject_id=id
         is_zlink
