@@ -1,10 +1,11 @@
 [
+    % Edit for a new page
     {ginger_edit, ["edit"], controller_template, [
         {acl, is_auth}, {template, "page_ginger_edit.tpl"}
     ]},
+
+    % Edit of an existing page
     {ginger_edit, ["edit", id], controller_page, [
         {acl_action, update}, {template, {cat, "page_ginger_edit.tpl"}}, {is_canonical, false}
-    ]},
-
-    {ginger_edit_rsc, ["edit", id], controller_admin_edit, []}
+    ]}
 ].

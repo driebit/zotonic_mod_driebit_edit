@@ -50,7 +50,8 @@
 
                 {% button class="btn--save" text=_"Save" title=_"Save"
                           action={script script="$('#save_view').click();"}
-                 %}
+                %}
+                {% button class="btn--cancel" text=_"Cancel" action={redirect back} tag="a" %}
             </div>
         </div>
     </nav>

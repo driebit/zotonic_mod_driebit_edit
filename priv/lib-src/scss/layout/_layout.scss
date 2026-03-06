@@ -27,11 +27,16 @@
     @include size(padding-top, 15);
     @include size(padding-bottom, 150);
     @include size(margin-top, 35);
+
     border-top: 2px solid $grey;
 
     .btn--save {
         float: right;
     }
+
+    position: sticky;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 div.modal .modal-footer {
