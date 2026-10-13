@@ -11,9 +11,9 @@
                 type="submit"
                 postback={rscform
                 	view_location=view_location
-                	on_success=on_save
+                	on_success={redirect id=id}
                 }
-                delegate=`controller_admin_edit`
+                delegate=`mod_driebit_edit`
         %}
     {% endwith %}
     <input type="hidden" name="id" value="{{ id }}">
